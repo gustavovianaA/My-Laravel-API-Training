@@ -21,6 +21,11 @@ Route::get('/doc/{lang?}', function ($lang = '') {
     return view('documentation', ['lang' => $lang]);
 });
 
+/*
+ * Method to get the auth sanctum token
+ * to make possible to access API protected endpoints
+*/
+
 Route::get('/setup', function() {
     $credentials = [
         'email' => 'admin@admin.com',

@@ -45,7 +45,7 @@
             <p>Esta API permite gerenciar informações de clientes através do endpoint <code>/customers</code> utilizando os métodos HTTP padrão.</p>
         @endif
         <!-- main acordion -->
-        <div class="accordion" id="accordionExample">
+        <div class="accordion mb-5" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -149,10 +149,7 @@
                             </div>
                         </div>
 
-
                         <!-- end of custommer documenttion-->
-
-
 
                     </div>
                 </div>
