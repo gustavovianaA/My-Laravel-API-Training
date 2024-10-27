@@ -23,7 +23,7 @@ class CustomerController extends Controller
     {
         $filter = new CustomersFilter();
         $filterItems = $filter->transform($request); //[['column', 'operator', 'value']]
-
+        
         $includeInvoices = $request->query('includeInvoices');
 
         $customers = Customer::where($filterItems);

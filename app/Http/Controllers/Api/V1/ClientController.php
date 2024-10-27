@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Models\Customer;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\ClientResource;
+use App\Http\Resources\V1\ClientCollection;
+use App\Filters\V1\ClientsFilter;
 
 class ClientController extends Controller
 {
@@ -13,9 +16,14 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return 'client - index';
+        $filter = new ClientsFilter();
+        $filterItems = $filter->transform($request); //[['column', 'operator', 'value']]
+
+        $clients = Client::where($filterItems);
+        
+        return new ClientCollection($clients->paginate()->appends($request->query()));
     }
 
     /**

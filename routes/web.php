@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{lang?}', function ($lang = '') {
-    return view('documentation' , ['lang' => $lang]);
+Route::get('/', function () {
+    return view('documentation' , ['lang' => 'pt']);
 });
 
 Route::get('/doc/{lang?}', function ($lang = '') {
