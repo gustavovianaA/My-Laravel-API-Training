@@ -12,7 +12,7 @@ use App\Filters\V1\ClientsFilter;
 class ClientController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the clients.
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,14 +38,20 @@ class ClientController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified client.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return 'client - show';
+        $client = Client::find($id);
+
+        if(is_null($client)){
+            return response()->json(['message' => 'Client not found.',], 404);
+        }
+
+        return new ClientResource($client);
     }
 
     /**
